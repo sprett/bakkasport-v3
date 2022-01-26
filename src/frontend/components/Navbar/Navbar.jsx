@@ -1,5 +1,5 @@
-import Logo from '../img/logo.svg'
-import Logos from '../img/logo-s.svg'
+import Logo from '../../images/Logo/logo.svg'
+import Logos from '../../images/Logo/logo-s.svg'
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
 function Navbar() {
@@ -23,7 +23,7 @@ function Navbar() {
                                             <a href>Home</a>
                                         </li>
                                     </Link>
-                                    <Link to="/team">
+                                    <Link to="/roster">
                                         <li className="border-b-4 border-transparent pb-1 hover:border-pink-400 transition duration-200">
                                             <a href>Roster</a>
                                         </li>
@@ -37,27 +37,36 @@ function Navbar() {
                             </div>
                         </div>
                     </nav>
+                    {/* Mobile Navbar */}
                     <nav className="lg:hidden">
                         <div className="flex py-6 justify-between items-center px-4">
+                            <Link to="/">
                                 <img src={Logos} className='h-12' />
+                            </Link>
                             <div className=" flex items-center">
                                 {show && (
                                     <ul id="list" className=" p-2 border-r bg-white absolute rounded top-0 left-0 right-0 shadow mt-16 md:mt-16">
-                                        <li className="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
-                                            <a href="javascript:void(0)">
-                                                <span className="ml-2 font-bold">Home</span>
-                                            </a>
-                                        </li>
-                                        <li className="flex flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none  justify-center" onclick="dropdownHandler(this)">
-                                            <a href="javascript:void(0)">
-                                                <span className="ml-2 font-bold">Roster</span>
-                                            </a>
-                                        </li>
-                                        <li className="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700  items-center focus:text-indigo-700 focus:outline-none">
-                                            <a href="javascript:void(0)">
-                                                <span className="ml-2 font-bold">Contact Us</span>
-                                            </a>
-                                        </li>
+                                        <Link to ="/">
+                                            <li className="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal mt-2 py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none">
+                                                <a href="javascript:void(0)">
+                                                    <span className="ml-2 font-bold">Home</span>
+                                                </a>
+                                            </li>    
+                                        </Link>
+                                        <Link to=" /roster">
+                                            <li className="flex flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none  justify-center" onclick="dropdownHandler(this)">
+                                                <a href="javascript:void(0)">
+                                                    <span className="ml-2 font-bold">Roster</span>
+                                                </a>
+                                            </li>
+                                        </Link>
+                                        <Link to =" /dashboard">
+                                            <li className="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700  items-center focus:text-indigo-700 focus:outline-none">
+                                                <a href="javascript:void(0)">
+                                                    <span className="ml-2 font-bold">Contact Us</span>
+                                                </a>
+                                            </li>
+                                        </Link>
                                     </ul>
                                 )}
                                 <div className="xl:hidden" onClick={() => setShow(!show)}>

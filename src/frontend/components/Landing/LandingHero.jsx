@@ -1,4 +1,4 @@
-import PsController from '../img/pscontroller.svg'
+import PsController from '../../images/Visuals/pscontroller.svg'
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
 function Hero() {
