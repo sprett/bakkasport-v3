@@ -39,13 +39,22 @@ export default {
     },
     {
       name: 'publishedAt',
-      title: 'Published at',
+      title: 'Publisert på',
       type: 'datetime',
     },
     {
       name: 'body',
-      title: 'Body',
+      title: 'Innhold',
       type: 'blockContent',
+    },
+    {
+      name: 'summary',
+      title: 'Oppsumering (Hold det kort og enkelt her!)',
+      type: 'blockContent',
+      options: {
+        source: 'summary',
+        maxLength: 96,
+      },
     },
   ],
 

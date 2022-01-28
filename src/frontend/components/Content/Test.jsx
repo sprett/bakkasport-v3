@@ -28,6 +28,7 @@ export default function AllContent() {
           }
         },
         body,
+        category,
           "name": author->name,
           "authorImage": author->image
       }`
