@@ -28,7 +28,7 @@ function Navbar() {
                                             <a href>Roster</a>
                                         </li>
                                     </Link>
-                                    <Link to ="/dashboard">
+                                    <Link to ="/content">
                                         <li className="border-b-4 border-transparent pb-1 hover:border-pink-400 transition duration-200">
                                             <a href>Content</a>
                                         </li>
@@ -60,7 +60,7 @@ function Navbar() {
                                                 </a>
                                             </li>
                                         </Link>
-                                        <Link to =" /dashboard">
+                                        <Link to =" /content">
                                             <li className="flex cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700  items-center focus:text-indigo-700 focus:outline-none">
                                                 <a href="javascript:void(0)">
                                                     <span className="ml-2 font-bold">Contact Us</span>

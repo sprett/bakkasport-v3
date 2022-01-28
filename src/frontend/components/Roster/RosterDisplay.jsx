@@ -8,6 +8,7 @@ const people = [
     twitterUrl: '#',
     linkedinUrl: '#',
   },
+  
   // More people...
 ]
 
