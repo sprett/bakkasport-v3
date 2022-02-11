@@ -1,10 +1,9 @@
-// src/component/OnePost.js
-
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import sanityClient from "../../../backend/client";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
+import Navbar from "../Navbar/Navbar";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
@@ -37,44 +36,61 @@ export default function Individual() {
   }, [slug]);
 
   if (!postData) return <div>Loading...</div>;
-
-  return (
-    <div className="bg-gray-200 min-h-screen p-12">
-      <div className="container shadow-lg mx-auto bg-green-100 rounded-lg">
-        <div className="relative">
-          <div className="absolute h-full w-full flex items-center justify-center p-8">
-            {/* Title Section */}
-            <div className="bg-white bg-opacity-75 rounded p-12">
-              <h2 className="cursive text-3xl lg:text-6xl mb-4">
-                {postData.title}
-              </h2>
-              <div className="flex justify-center text-gray-800">
-                <img
-                  src={urlFor(postData.authorImage).url()}
-                  className="w-10 h-10 rounded-full"
-                  alt="Author is Kap"
-                />
-                <h4 className="cursive flex items-center pl-2 text-2xl">
-                  {postData.name}
-                </h4>
-              </div>
-            </div>
+    return (
+      <div className="bg-gray-800 ">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+        <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase sm:text-center">
+          20 Nov 2020
+        </p>
+        <div className="max-w-xl mb-5 md:mx-auto sm:text-center lg:max-w-2xl">
+          <div className="mb-4">
+            <h1
+              
+              aria-label="Article"
+              className="mb-8 inline-block max-w-lg font-sans text-3xl font-extrabold leading-none tracking-tight text-white transition-colors duration-200 hover:text-deep-purple-accent-700 sm:text-4xl"
+            >
+              {postData.title}
+            </h1>
           </div>
-          <img
-            className="w-full object-cover rounded-t"
-            src={urlFor(postData.mainImage).url()}
-            alt=""
-            style={{ height: "400px" }}
-          />
-        </div>
-        <div className="px-16 lg:px-48 py-12 lg:py-20 prose lg:prose-xl max-w-full">
+          <div className="flex justify-center">
+          <img className="rounded-2xl h-96" src={urlFor(postData.mainImage).url()} alt="" />
+          </div>
+          <p className="mt-14 text-base text-gray-200 md:text-lg">
           <BlockContent
             blocks={postData.body}
             projectId={sanityClient.clientConfig.projectId}
             dataset={sanityClient.clientConfig.dataset}
           />
+          </p>
+        </div>
+        <div className="m-10 sm:text-center">
+          <a href="/" aria-label="Author" className="inline-block mb-1">
+            <img
+              alt="avatar"
+              src={urlFor(postData.authorImage).url()}
+              className="object-cover w-10 h-10 rounded-full shadow-sm"
+            />
+          </a>
+          <div>
+            <p
+              aria-label="Author"
+              className="font-semibold text-gray-300  transition-colors duration-200 hover:text-deep-purple-accent-700"
+            >
+              {postData.name}
+            </p>
+            <p className="mt-2 text-sm font-medium leading-4 text-gray-600">Author</p>
+          </div>
+        </div>
+        <div className="sm:text-center">
+          <a
+            href="/"
+            aria-label=""
+            className="inline-flex items-center font-semibold transition-colors duration-200 text-deep-purple-accent-400 hover:text-deep-purple-800"
+          >
+            Read more
+          </a>
         </div>
       </div>
-    </div>
-  );
-}
+      </div>
+    );
+  };

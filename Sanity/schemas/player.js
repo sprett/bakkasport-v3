@@ -22,7 +22,7 @@ export default {
         name: 'game',
         title: 'Spiller kategori:',
         type: 'string',
-        
+        validation: Rule => Rule.required()
       },
       {
         title: 'Link',

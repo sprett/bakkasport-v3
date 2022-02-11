@@ -32,12 +32,6 @@ export default {
       },
     },
     {
-      name: 'categories',
-      title: 'Categories',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
-    },
-    {
       name: 'publishedAt',
       title: 'Publisert på',
       type: 'datetime',
@@ -46,15 +40,6 @@ export default {
       name: 'body',
       title: 'Innhold',
       type: 'blockContent',
-    },
-    {
-      name: 'summary',
-      title: 'Oppsumering (Hold det kort og enkelt her!)',
-      type: 'blockContent',
-      options: {
-        source: 'summary',
-        maxLength: 96,
-      },
     },
   ],
 

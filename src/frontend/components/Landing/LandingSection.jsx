@@ -10,7 +10,7 @@ export default function BottomSection() {
           <div>
             <h2 className="text-base text-white font-semibold tracking-wide uppercase border-b-4 border-pink-400 pb-3">Get to know us</h2>
             <h3 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-white sm:text-4xl uppercase">
-              About The <span className='text-pink-400'>BAKKA</span> Team
+              About The <span className='text-pink-400'>Bakka</span> Team
             </h3>
           </div>
         </div>

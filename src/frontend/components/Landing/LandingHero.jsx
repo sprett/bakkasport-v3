@@ -1,6 +1,14 @@
+import sanityClient from "../../../backend/client";
+import imageUrlBuilder from "@sanity/image-url";
+import React, { useEffect, useState } from "react";
 import PsController from '../../images/Visuals/pscontroller.svg'
 import React, { useState } from "react";
 import {Link} from "react-router-dom";
+
+
+
+
+
 function Hero() {
     const [show, setShow] = useState(false);
 

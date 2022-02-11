@@ -7,10 +7,8 @@ import Footer from "../../frontend/components/Footer/Footer"
 function Landing() {
   return (
     <div>
-      <Navbar />
       <Hero />
       <BottomSection />
-      <Footer />
     </div>
   ); 
 }

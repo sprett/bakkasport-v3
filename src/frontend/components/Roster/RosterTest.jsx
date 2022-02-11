@@ -47,7 +47,6 @@ export default function RosterDisplay() {
             <h2 className="text-3xl font-extrabold text-white tracking-tight sm:text-4xl">Meet the team at Bakka <span className="text-pink-400">E-SPORT</span></h2>
             <p className="text-xl text-gray-300">
               Ornare sagittis, suspendisse in hendrerit quis. Sed dui aliquet lectus sit pretium egestas vel mattis
-              neque.
             </p>
           </div>
           <ul role="list" className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 lg:gap-8">
