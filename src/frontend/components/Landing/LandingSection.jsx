@@ -38,7 +38,7 @@ export default function LandingSection() {
   </div>;
 
   return (
-    <div className="bg-gray-800 overflow-hidden">
+    <div id='about' className="bg-gray-800 overflow-hidden">
       {homeData && homeData.map((home, index) => (
       <div key={index} className="relative max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8">
         <div className="hidden lg:block bg-gray-800 absolute top-0 bottom-0 left-3/4 w-screen" />

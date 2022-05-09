@@ -1,78 +1,81 @@
-// src/components/AllPosts.js
-
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import sanityClient from "../../../backend/client";
 import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
+import { Link } from "react-router-dom";
 
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
 }
 
-export default function AllContent() {
-    const [allPostsData, setAllPosts] = useState(null);
-  
-    useEffect(() => {
-      sanityClient
-        .fetch(
-          `*[_type == "post"]{
-          title,
-          slug,
-          mainImage{
-          asset->{
-            _id,
-            url
-          }
-        },
-        summary,
-        category,
-          "name": author->name,
-          "authorImage": author->image
-      }`
-        )
-        .then((data) => setAllPosts(data))
-        .catch(console.error);
-    }, []);
- 
-   if (!setAllPosts) return <div>Loading...</div>;
 
-  return (
-    <div className="relative pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <div className="absolute inset-0">
-        <div className="bg-gray-800 h-1/3 sm:h-2/3" />
-      </div>
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold text-white sm:text-4xl">Latest</h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-400 sm:mt-4">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ipsa libero labore natus atque, ducimus sed.
-          </p>
-        </div>
-        <div className="mt-12 max-w-lg mx-auto grid gap-5 lg:grid-cols-3 lg:max-w-none">
-          {allPostsData &&
+
+/* This is a function that is fetching data from the Sanity API. */
+export default function AllContent() {
+  const [allPostsData, setAllPosts] = useState(null);
+
+  useEffect(() => {
+    sanityClient
+      .fetch(
+        `*[_type == "post"]{
+        title,
+        slug,
+        mainImage{
+        asset->{
+          _id,
+          url
+        }
+      },
+      summary,
+      publishedAt,
+      category,
+        "name": author->name,
+        "authorImage": author->image
+    }`
+      )
+      .then((data) => setAllPosts(data))
+      .catch(console.error);
+  }, []);
+
+ if (!setAllPosts) return <div>Loading...</div>;
+    return (
+      <div className="bg-gray-800 py-28">
+      <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
+      <div className="grid gap-5 lg:grid-cols-3 sm:max-w-sm sm:mx-auto lg:max-w-full">
+      {allPostsData &&
             allPostsData.map((post, index) => (
-            <Link to={"/" + post.slug.current} key={post.slug.current}>
-            <div key={index} className="flex flex-col rounded-lg shadow-lg overflow-hidden">
-              <div className="flex-shrink-0">
-                <img className="h-48 w-full object-cover" src={post.mainImage.asset.url} alt="" />
-              </div>
-              <div className="flex-1 bg-white p-6 flex flex-col justify-between">
-                <div className="flex-1">
-                    <p className="text-xl font-semibold text-gray-900">{post.title}</p>
-                    {/* <BlockContent
-                      blocks={post.summary}
-                      projectId={sanityClient.clientConfig.projectId}
-                      dataset={sanityClient.clientConfig.dataset}
-                    /> */}
-                 </div>
-            </div>
-            </div>
-            </Link>
-          ))}
+      <Link to={"/" + post.slug.current} key={post.slug.current}>
+        <div key={index} className="overflow-hidden transition-shadow duration-300 bg-gray-800 rounded">
+          <a href="/" aria-label="Article">
+            <img
+              src={urlFor(post.mainImage).url()}
+              className="object-cover w-full h-64 rounded"
+              alt=""
+            />
+          </a>
+          <div className="py-5">
+            <p className="mb-2 text-xs font-semibold text-gray-600 uppercase">
+              {post.publishedAt}
+            </p>
+            <a
+              href="/"
+              aria-label="Article"
+              className="inline-block mb-3 text-white transition-colors duration-200 hover:text-deep-purple-accent-700"
+            >
+              <p className="text-2xl font-bold leading-5">{post.title}</p>
+            </a>
+            <p className="mb-4 text-gray-400">
+              Sed ut perspiciatis unde omnis iste natus error sit sed quia
+              consequuntur magni voluptatem doloremque.
+            </p>
+          </div>
         </div>
+        </Link>
+            ))}
+      </div>
     </div>
     </div>
   );
-}
+};

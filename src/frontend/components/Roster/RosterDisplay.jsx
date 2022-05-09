@@ -51,6 +51,8 @@ export default function RosterDisplay() {
           </div>
           <ul role="list" className="space-y-4 sm:grid sm:grid-cols-2 sm:gap-6 sm:space-y-0 lg:grid-cols-3 lg:gap-8">
 
+          {/*Checking if playerData is true, if it is true then it will map through the data and return
+          the player and index. */}
           {playerData && playerData.map((player, index) => (
             <li key={index} className="py-10 px-6 bg-gray-900 text-center rounded-lg xl:px-10 xl:text-left">
               <div className="space-y-6 xl:space-y-10">

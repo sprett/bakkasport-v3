@@ -4,10 +4,15 @@ import Roster from './pages/Roster/Roster';
 import Content from './pages/Content/Content';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Individual from './frontend/components/Content/Individual';
-import Test from './frontend/components/Content/Test';
+import Test from './frontend/components/Content/AllContent';
 import Navbar from './frontend/components/Navbar/Navbar';
 import NewFooter from './frontend/components/Footer/Footer';
 
+/**
+ * The App function returns a Router component that contains a Navbar component, a Routes component,
+ * and a NewFooter component
+ * @returns The App component is being returned.
+ */
 const App = () => {
   return (
     <Router>

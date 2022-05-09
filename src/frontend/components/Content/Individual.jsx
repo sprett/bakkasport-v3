@@ -5,11 +5,19 @@ import BlockContent from "@sanity/block-content-to-react";
 import imageUrlBuilder from "@sanity/image-url";
 import Navbar from "../Navbar/Navbar";
 
+/**
+ * It takes a Sanity image object and returns a URL to the image
+ * @returns The image url
+ */
 const builder = imageUrlBuilder(sanityClient);
 function urlFor(source) {
   return builder.image(source);
 }
 
+/* This is a function that is being exported. It is using the useState hook to set the postData to
+null. It is using the useParams hook to get the slug from the url. It is using the useEffect hook to
+fetch the data from the Sanity API. It is then setting the postData to the data that is returned
+from the API. */
 export default function Individual() {
   const [postData, setPostData] = useState(null);
   const { slug } = useParams();
@@ -55,7 +63,7 @@ export default function Individual() {
           <div className="flex justify-center">
           <img className="rounded-2xl h-96" src={urlFor(postData.mainImage).url()} alt="" />
           </div>
-          <p className="mt-14 text-base text-gray-200 md:text-lg">
+          <p className="mt-14 text-base prose text-gray-200 md:text-lg">
           <BlockContent
             blocks={postData.body}
             projectId={sanityClient.clientConfig.projectId}
