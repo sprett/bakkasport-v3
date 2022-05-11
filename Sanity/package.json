@@ -29,6 +29,7 @@
     "sanity-plugin-asset-source-unsplash": "^0.1.5",
     "sanity-plugin-dark-mode": "^0.0.33",
     "sanity-plugin-media": "^1.4.4",
+    "sanity-plugin-vercel-deploy": "^2.1.6",
     "styled-components": "^5.2.0"
   }
 }

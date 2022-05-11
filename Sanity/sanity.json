@@ -1,8 +1,17 @@
 {
   "root": true,
   "project": {
-    "name": "Bakka E-SPORT",
-    "basePath": "/admin"
+    "name": "Bakka E-SPORT"
+  },
+  "deployment": {
+    "provider": "vercel",
+    "studio": { "basePath": "/admin" },
+    "corsOrigins": [
+      {
+        "origin": "http://localhost:3000",
+        "allowCredentials": true
+      }
+    ]
   },
   "api": {
     "projectId": "d4iogdys",
@@ -15,7 +24,8 @@
     "@sanity/desk-tool",
     "media",
     "asset-source-unsplash",
-    "dark-mode"
+    "dark-mode",
+    "vercel-deploy"
   ],
   "env": {
     "development": {
